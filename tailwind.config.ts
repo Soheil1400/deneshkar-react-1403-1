@@ -8,7 +8,6 @@ export default {
   ],
   theme: {
     extend: {
-
       colors: {
         "primary-main": "#FF00A6",
         "primary-dark": "#E00096",
@@ -39,8 +38,6 @@ export default {
         "carbon-alphaLight": "rgba(58,61,66,0.06)",
         "carbon-alphaMedium": "rgba(58,61,66,0.12)",
         "carbon-alphaHigh": "rgba(24,28,32,0.2)",
-
-
         "alert-main": "#FA284B",
         "alert-dark": "#E00025",
         "alert-light": "#FF3D5D",

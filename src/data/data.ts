@@ -1,4 +1,3 @@
-
 export const DATABASE = {
     "services":[
         { "service": "رستوران", "img": "/images/images-home/service-food.png" },
