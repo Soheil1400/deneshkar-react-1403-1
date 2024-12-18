@@ -1,9 +1,11 @@
 'use client'
 import {DATABASE} from "@/src/data/data";
 import Image from "next/image";
-import {MdArrowBackIosNew, MdOutlineStar} from "react-icons/md";
+import {MdArrowBackIosNew, MdOutlineShoppingBag, MdOutlineStar} from "react-icons/md";
 import {Swiper, SwiperSlide, useSwiper} from "swiper/react";
 import 'swiper/css';
+import ContactUsImage from '../public/images/shop.png'
+
 
 const Categories = () => {
     return (
@@ -44,7 +46,7 @@ const SwiperNextButton = () => {
 
 const Slide = () => {
     return (
-        <div className={'flex max-w-7xl flex-wrap w-full'}>
+        <div className={'flex max-w-7xl flex-wrap w-full my-16'}>
             <div className={'flex justify-between w-full my-4'}>
                 <div className={'text-xl font-bold'}>
                     {'تازه‌ها در اسنپ‌فود'}
@@ -103,12 +105,47 @@ const Slide = () => {
     )
 }
 
+const PrimaryButton = ({children}) => {
+    return(
+        <button className={'flex bg-primary-main text-white px-3 py-2 rounded-lg text-xl'}>
+            {children}
+        </button>
+    )
+}
+
+const ContactUs = () => {
+    return(
+        <div className={'flex max-w-7xl flex-wrap w-full my-16'}>
+            <div className={'flex justify-between rounded-xl p-8 bg-body-color w-full'}>
+                <div className={'w-1/2'}>
+                    <div className={'text-3xl font-bold text-carbon-main'}>
+                        {'صاحب کسب و کار هستید؟'}
+                    </div>
+                    <div className={'my-8 text-xl text-carbon-main'}>
+                        {'با اسنپ فود کسب و کارتان را آنلاین کنید و فروشتان را افزایش دهید.'}
+                    </div>
+                    <div>
+                        <PrimaryButton>
+                            <MdOutlineShoppingBag style={{marginLeft: '4px', marginTop: '4px'}}/>
+                            {'ثبت نام فروشندگان'}
+                        </PrimaryButton>
+                    </div>
+                </div>
+                <div className={'w-1/2 flex justify-end'}>
+                    <Image src={ContactUsImage} alt={''} width={350} height={350} style={{marginTop: '-124px'}}/>
+                </div>
+            </div>
+        </div>
+    )
+}
+
 
 export default function Home() {
     return (
         <div className={'flex w-full justify-center flex-wrap'}>
             <Categories/>
             <Slide/>
+            <ContactUs/>
         </div>
     );
 }
