@@ -12,7 +12,7 @@ const Page = () => {
     const totalProductCount = products.reduce((total, currentProduct) => total + currentProduct.count, 0)
 
     const totalPrice = products.reduce((total, currentProduct) => total + currentProduct.price * currentProduct.count, 0)
-
+    const isCartEmpty = products.length === 0
     const handleAddProduct = (food) => {
         dispatch(addProduct(food))
     }
@@ -26,8 +26,10 @@ const Page = () => {
     }
 
     const handleAddToHistory = () => {
-        dispatch(addCartToHistory(products))
-        handleClearProduct()
+        if (!isCartEmpty) {
+            dispatch(addCartToHistory(products))
+            handleClearProduct()
+        }
     }
 
     return (
@@ -84,7 +86,7 @@ const Page = () => {
                 {'مجموع سبد خرید: '}
                 {totalPrice}
             </div>
-            <button onClick={handleAddToHistory}>
+            <button className={`my-2 ${isCartEmpty ? 'bg-gray-600 text-white cursor-not-allowed' : 'bg-red-500'} px-3 py-2 rounded-xl `} onClick={handleAddToHistory}>
                 {'نهایی کردن سبد خرید'}
             </button>
         </div>
