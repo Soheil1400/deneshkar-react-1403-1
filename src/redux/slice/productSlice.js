@@ -5,15 +5,24 @@ export const productSlice = createSlice({
     initialState: [],
     reducers: {
         addProduct: (state, action) => {
-            state.push(action.payload)
+            const index = state.findIndex( product => product.id === action.payload.id)
+            if (index === -1) {
+                state.push({...action.payload, count: 1})
+            } else {
+                state[index].count = state[index].count + 1
+            }
         },
         deleteProduct: (state, action) => {
-            const index = state.findIndex( product => product.id === action.payload)
-            state.splice(index, 1)
+            const index = state.findIndex( product => product.id === action.payload.id)
+            if (action.payload.count > 1) {
+                state[index].count = state[index].count - 1
+            } else {
+                state.splice(index, 1)
+            }
         }
     }
 })
 
-export const {} = productSlice.actions
+export const {addProduct, deleteProduct} = productSlice.actions
 
 export default productSlice.reducer
