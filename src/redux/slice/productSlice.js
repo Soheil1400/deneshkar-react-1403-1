@@ -19,10 +19,13 @@ export const productSlice = createSlice({
             } else {
                 state.splice(index, 1)
             }
+        },
+        clearProduct: (state) => {
+            state.splice(0, state.length)
         }
     }
 })
 
-export const {addProduct, deleteProduct} = productSlice.actions
+export const {addProduct, deleteProduct, clearProduct} = productSlice.actions
 
 export default productSlice.reducer
