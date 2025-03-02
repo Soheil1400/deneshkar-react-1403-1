@@ -17,8 +17,15 @@ const Slide = () => {
                     <MdArrowBackIosNew style={{marginRight: '8px', marginTop: '4px'}}/>
                 </div>
             </div>
-            <div className={'flex w-full flex-wrap relative'}>
-                <Swiper spaceBetween={20} slidesPerView={4}>
+            <div className={'flex w-full flex-wrap relative p-4'}>
+                <Swiper spaceBetween={20} slidesPerView={4} breakpoints={{
+                    320: {
+                        slidesPerView: 1,
+                    },
+                    1024: {
+                        slidesPerView: 4,
+                    }
+                }}>
                     <SwiperNextButton/>
                     {DATABASE.restaurants.map(restaurant => (
                         <SwiperSlide key={restaurant.id}>

@@ -10,9 +10,9 @@ const Categories = () => {
             </div>
             <div className={'flex flex-wrap w-full'}>
                 {DATABASE.cats.map(cat => (
-                    <div className={'w-1/6 mb-8'} key={cat.id}>
+                    <div className={'w-1/2 md:w-1/6  p-2 flex justify-center'} key={cat.id}>
                         <div
-                            className={'border-white border-solid border-4 rounded-xl shadow-shadows-medium h-24 w-3/4 relative cursor-pointer hover:shadow-shadows-high'}>
+                            className={'border-white border-solid border-4 rounded-xl shadow-shadows-medium h-24 w-max md:w-3/4 relative cursor-pointer hover:shadow-shadows-high'}>
                             <Image src={cat.img} alt={cat.title} width={100} height={100}
                                    style={{width: '100%', height: '100%', borderRadius: '12px'}}/>
                             <div
