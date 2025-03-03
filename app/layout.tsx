@@ -1,33 +1,18 @@
-'use client'
-import type {Metadata} from "next";
-import {Geist, Geist_Mono} from "next/font/google";
 import "./globals.css";
-import store from "@/src/redux/store";
-import {Provider} from "react-redux";
+import ReduxProvider from "@/src/provider/ReduxProvider";
+import {ReactNode} from "react";
 
-const geistSans = Geist({
-    variable: "--font-geist-sans",
-    subsets: ["latin"],
-});
+interface Props {
+    children: ReactNode
+}
 
-const geistMono = Geist_Mono({
-    variable: "--font-geist-mono",
-    subsets: ["latin"],
-});
-
-export default function RootLayout({
-                                       children,
-                                   }: Readonly<{
-    children: React.ReactNode;
-}>) {
+export default function RootLayout({children}: Props) {
     return (
         <html lang="fa" dir={'rtl'}>
-        <body
-            className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-        >
-        <Provider store={store}>
+        <body>
+        <ReduxProvider>
             {children}
-        </Provider>
+        </ReduxProvider>
         </body>
         </html>
     );

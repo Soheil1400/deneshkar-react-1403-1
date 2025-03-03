@@ -4,32 +4,289 @@
 
 @layer {
 
-  @font-face {
-    font-family: "Vazirmatn-Regular";
-    src: url("../public/font/Vazirmatn-Regular.ttf");
-  }
+    @font-face {
+        font-family: "Vazirmatn-Regular";
+        src: url("../public/font/Vazirmatn-Regular.ttf");
+    }
 
-  @font-face {
-    font-family: "Vazirmatn-Medium";
-    src: url("../public/font/Vazirmatn-Medium.ttf");
-  }
+    @font-face {
+        font-family: "Vazirmatn-Medium";
+        src: url("../public/font/Vazirmatn-Medium.ttf");
+    }
 
-  @font-face {
-    font-family: "Vazirmatn-SemiBold";
-    src: url("../public/font/Vazirmatn-SemiBold.ttf");
-  }
+    @font-face {
+        font-family: "Vazirmatn-SemiBold";
+        src: url("../public/font/Vazirmatn-SemiBold.ttf");
+    }
 
-  @font-face {
-    font-family: "Vazirmatn-Bold";
-    src: url("../public/font/Vazirmatn-Bold.ttf");
-  }
+    @font-face {
+        font-family: "Vazirmatn-Bold";
+        src: url("../public/font/Vazirmatn-Bold.ttf");
+    }
 
-  @font-face {
-    font-family: "Vazirmatn-ExtraBold";
-    src: url("../public/font/Vazirmatn-ExtraBold.ttf");
-  }
+    @font-face {
+        font-family: "Vazirmatn-ExtraBold";
+        src: url("../public/font/Vazirmatn-ExtraBold.ttf");
+    }
+}
+
+@layer components {
+    .contact-us-container {
+        @apply flex max-w-7xl flex-wrap w-full my-16;
+    }
+
+    .contact-us-content {
+        @apply flex justify-between rounded-xl p-8 bg-body-color w-full;
+    }
+
+    .contact-us-left {
+        @apply w-full md:w-1/2;
+    }
+
+    .contact-us-title {
+        @apply text-3xl font-bold text-carbon-main;
+    }
+
+    .contact-us-description {
+        @apply my-8 text-xl text-carbon-main;
+    }
+
+    .contact-us-button {
+        @apply flex bg-primary-main text-white px-3 py-2 rounded-lg text-xl;
+    }
+
+    .contact-us-image-container {
+        @apply hidden w-1/2 md:flex justify-end;
+    }
+
+    .contact-us-image {
+        @apply mt-[-124px];
+    }
+
+    .slide-container {
+        @apply flex max-w-7xl flex-wrap w-full my-16;
+    }
+
+    .slide-header {
+        @apply flex justify-between w-full my-4;
+    }
+
+    .slide-title {
+        @apply text-xl font-bold;
+    }
+
+    .slide-view-all {
+        @apply flex text-secondary-main font-bold text-lg cursor-pointer;
+    }
+
+    .slide-wrapper {
+        @apply flex w-full flex-wrap relative p-4;
+    }
+
+    .slide-card {
+        @apply flex flex-wrap w-full cursor-pointer shadow-shadows-medium hover:shadow-shadows-high;
+    }
+
+    .slide-image-container {
+        @apply w-full bg-amber-600 h-36 rounded-t-xl relative;
+    }
+
+    .slide-payment-badge {
+        @apply absolute bg-white top-8 rounded-tl-xl rounded-bl-xl px-4 py-1 text-secondary-main text-sm;
+    }
+
+    .slide-logo-container {
+        @apply flex flex-col w-full justify-center items-center -mt-8 z-40;
+    }
+
+    .slide-logo {
+        @apply w-20 h-20 rounded-xl border-white border-solid border-4;
+    }
+
+    .slide-name {
+        @apply mt-4 text-lg font-bold;
+    }
+
+    .slide-rating {
+        @apply flex my-1 text-sm;
+    }
+
+    .slide-categories {
+        @apply my-1 text-sm text-gray5-color;
+    }
+
+    .slide-delivery {
+        @apply flex text-xs my-4;
+    }
+
+    .categories-container {
+        @apply flex max-w-7xl flex-wrap w-full;
+    }
+
+    .categories-title {
+        @apply w-full my-8 font-bold text-carbon-light;
+    }
+
+    .category-grid {
+        @apply flex flex-wrap w-full;
+    }
+
+    .category-item {
+        @apply w-1/2 md:w-1/6 p-2 flex justify-center;
+    }
+
+    .category-card {
+        @apply border-white border-solid border-4 rounded-xl shadow-shadows-medium h-24 w-max md:w-3/4 relative cursor-pointer hover:shadow-shadows-high;
+    }
+
+    .category-badge {
+        @apply flex absolute bg-white bottom-0 rounded-tl-xl rounded-br-xl px-3 py-1 -right-1 text-sm;
+    }
+
+    .page-container {
+        @apply flex w-full justify-center flex-wrap p-1 md:p-4 bg-surface-main;
+    }
+
+    .content-wrapper {
+        @apply flex max-w-7xl flex-wrap w-full my-16;
+    }
+
+    .section {
+        @apply  flex-wrap w-full md:w-1/4 p-4;
+    }
+
+    .restaurant-info {
+        @apply flex w-full align-middle h-20;
+    }
+
+    .restaurant-image {
+        @apply w-20 h-20 rounded-xl ml-4 border-4 border-solid border-white;
+    }
+
+    .restaurant-details {
+        @apply flex flex-col justify-center;
+    }
+
+    .restaurant-name {
+        @apply font-bold mt-4;
+    }
+
+    .delivery-info {
+        @apply flex w-full rounded-xl px-4 py-4 bg-white text-sm shadow-shadows-small;
+    }
+
+    .cart-container {
+        @apply flex w-full rounded-xl px-4 py-4 bg-white text-sm shadow-shadows-small mt-4 flex-wrap;
+    }
+
+    .cart-header {
+        @apply flex justify-between w-full mb-3;
+    }
+
+    .cart-delete {
+        @apply text-alert-main text-xl cursor-pointer;
+    }
+
+    .cart-item {
+        @apply flex flex-col my-3 w-full;
+    }
+
+    .cart-item-name {
+        @apply w-full font-bold;
+    }
+
+    .cart-item-info {
+        @apply w-full flex justify-between mt-3 items-center;
+    }
+
+    .cart-price {
+        @apply flex;
+    }
+
+    .cart-price-text {
+        @apply text-sm font-bold;
+    }
+
+    .cart-price-unit {
+        @apply text-sm mr-1;
+    }
+
+    .cart-actions {
+        @apply flex justify-between items-center min-w-28;
+    }
+
+    .cart-divider {
+        @apply w-full my-2 h-0.5 bg-gray6-color;
+    }
+
+    .cart-summary {
+        @apply w-full;
+    }
+
+    .cart-summary-row {
+        @apply w-full flex justify-between my-1;
+    }
+
+    .cart-summary-label {
+        @apply font-bold text-base;
+    }
+
+    .cart-checkout-btn {
+        @apply w-full bg-primary-main text-center py-2 rounded-lg text-white text-lg font-bold;
+    }
+
+    .cart-action-btn {
+        @apply flex justify-center items-center bg-white shadow-shadows-modal w-8 h-8 rounded-full text-primary-main cursor-pointer text-sm hover:bg-primary-main hover:text-white;
+    }
+
+    .food-list-container {
+        @apply flex flex-wrap w-full md:w-2/4 p-4;
+    }
+
+    .food-header {
+        @apply w-full rounded-t-xl bg-white py-4 border-solid border-surface-dark text-sm text-center;
+        border-width: 0.5px;
+        border-bottom: none;
+    }
+
+    .food-card {
+        @apply flex flex-wrap w-full md:w-1/2 bg-white p-4 border-solid border-surface-dark;
+        border-width: 1px;
+    }
+
+    .food-info {
+        @apply flex flex-col justify-center pl-4 font-bold;
+    }
+
+    .food-desc {
+        @apply text-xs;
+    }
+
+    .food-image {
+        @apply w-28 h-28 rounded-xl;
+    }
+
+    .food-price {
+        @apply text-sm mt-2;
+    }
+
+    .add-button {
+        @apply bg-white shadow-shadows-modal px-8 py-2 rounded-2xl text-primary-main cursor-pointer text-sm hover:bg-primary-main hover:text-white;
+    }
+
+    .btn-circle {
+        @apply flex justify-center items-center bg-white shadow-shadows-medium w-8 h-8 rounded-full text-primary-main cursor-pointer text-sm hover:bg-primary-main hover:text-white;
+    }
+
+    .food-counter {
+        @apply text-sm font-bold;
+    }
+
+    .add-food-container {
+        @apply flex justify-between min-w-28 items-center;
+    }
 }
 
 body {
-  font-family: Vazirmatn-Regular, Helvetica, sans-serif;
+    font-family: Vazirmatn-Regular, Helvetica, sans-serif;
 }

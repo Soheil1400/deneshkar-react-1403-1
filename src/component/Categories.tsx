@@ -4,19 +4,15 @@ import {MdArrowBackIosNew} from "react-icons/md";
 
 const Categories = () => {
     return (
-        <div className={'flex max-w-7xl flex-wrap w-full'}>
-            <div className={'w-full my-8 font-bold text-carbon-light'}>
-                {'دسته بندی ها'}
-            </div>
-            <div className={'flex flex-wrap w-full'}>
+        <div className="categories-container">
+            <div className="categories-title">{'دسته بندی ها'}</div>
+            <div className="category-grid">
                 {DATABASE.cats.map(cat => (
-                    <div className={'w-1/2 md:w-1/6  p-2 flex justify-center'} key={cat.id}>
-                        <div
-                            className={'border-white border-solid border-4 rounded-xl shadow-shadows-medium h-24 w-max md:w-3/4 relative cursor-pointer hover:shadow-shadows-high'}>
+                    <div className="category-item" key={cat.id}>
+                        <div className="category-card">
                             <Image src={cat.img} alt={cat.title} width={100} height={100}
                                    style={{width: '100%', height: '100%', borderRadius: '12px'}}/>
-                            <div
-                                className={'flex absolute bg-white bottom-0 rounded-tl-xl rounded-br-xl px-3 py-1 -right-1 text-sm'}>
+                            <div className="category-badge">
                                 {cat.title}
                                 <MdArrowBackIosNew style={{color: '#ff00a6', marginRight: '8px', marginTop: '2px'}}/>
                             </div>
@@ -28,4 +24,4 @@ const Categories = () => {
     )
 }
 
-export default Categories
+export default Categories;
