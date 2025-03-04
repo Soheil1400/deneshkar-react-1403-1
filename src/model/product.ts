@@ -19,7 +19,6 @@ export interface RestaurantTypeData {
     pay: string;
     tax: number;
     basketminimum: string;
-    count: number
 }
 
 export interface FoodTypeData {
@@ -34,4 +33,15 @@ export interface FoodTypeData {
     rate: number;
     desc: string;
     count: number
+}
+
+
+export interface CartTypeData {
+    restaurantData: {
+        name: string,
+        image: string,
+        address: string,
+    },
+    purchaseData: FoodTypeData[],
+    totalPrice: number
 }

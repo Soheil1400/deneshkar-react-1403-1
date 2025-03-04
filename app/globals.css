@@ -120,7 +120,7 @@
     }
 
     .categories-container {
-        @apply flex max-w-7xl flex-wrap w-full;
+        @apply flex max-w-7xl flex-wrap w-full mt-8;
     }
 
     .categories-title {
@@ -144,11 +144,11 @@
     }
 
     .page-container {
-        @apply flex w-full justify-center flex-wrap p-1 md:p-4 bg-surface-main;
+        @apply flex w-full justify-center flex-wrap p-1 md:p-4;
     }
 
     .content-wrapper {
-        @apply flex max-w-7xl flex-wrap w-full my-16;
+        @apply flex max-w-7xl flex-wrap w-full my-16 ;
     }
 
     .section {
@@ -284,6 +284,62 @@
 
     .add-food-container {
         @apply flex justify-between min-w-28 items-center;
+    }
+
+    .user-info-box {
+        @apply flex flex-col w-full px-4 py-6 bg-white rounded-xl;
+    }
+
+    .order-box {
+        @apply w-full px-4 py-6 bg-white rounded-xl;
+    }
+
+    .order-item {
+        @apply flex justify-between w-full items-center
+    }
+
+    .cart-restaurant-info {
+        @apply flex items-center;
+    }
+
+    .restaurant-img {
+        @apply w-16 h-16 rounded-xl border-4 border-solid border-white ml-2;
+    }
+
+    .order-price {
+        @apply flex;
+    }
+
+    .food-list {
+        @apply w-full mr-16 flex;
+    }
+
+    .food-item {
+        @apply w-10 h-10 rounded-xl border border-solid border-gray-500 ml-2;
+    }
+
+    .header-container {
+        @apply w-full flex flex-wrap bg-white p-4 fixed shadow-shadows-small z-50;
+    }
+
+    .header-content {
+        @apply w-full flex justify-between;
+    }
+
+    .header-logo {
+        @apply cursor-pointer;
+    }
+
+    .header-link {
+        @apply flex items-center;
+    }
+
+    .header-icon {
+        @apply text-xl;
+    }
+
+    .header-text {
+        @apply text-sm;
     }
 }
 

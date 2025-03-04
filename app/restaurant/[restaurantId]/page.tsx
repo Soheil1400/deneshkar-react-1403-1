@@ -5,13 +5,14 @@ import React from "react";
 import Menu from "@/src/component/restaurant/Menu";
 import Cart from "@/src/component/restaurant/Cart";
 import {RestaurantTypeData} from "@/src/model/product";
+import Breadcrumb from "@/src/component/Breadcrumb";
 
 const Page = ({params}: {params: {restaurantId: string}}) => {
     const [restaurantData] = DATABASE.restaurants.filter(res => res.id === +params.restaurantId) as RestaurantTypeData[]
     return (
         <div className="page-container">
             <div className="content-wrapper">
-                <div className="w-full">{'title'}</div>
+                <Breadcrumb title={restaurantData.name}/>
                 <div className="section">
                     <div className="restaurant-info">
                         <div className="restaurant-image">
@@ -19,7 +20,6 @@ const Page = ({params}: {params: {restaurantId: string}}) => {
                                    style={{width: '100%', height: '100%', borderRadius: '12px'}}/>
                         </div>
                         <div className="restaurant-details">
-                            <div>{'جدید'}</div>
                             <div className="restaurant-name">{restaurantData.name}</div>
                         </div>
                     </div>

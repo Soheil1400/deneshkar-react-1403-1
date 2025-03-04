@@ -2,9 +2,10 @@
 import {convertToPersian} from "@/src/utils/convertToPersian";
 import {MdAdd, MdDelete, MdHorizontalRule} from "react-icons/md";
 import {addProduct, clearProduct, deleteProduct} from "@/src/redux/slice/productSlice";
-import React from "react";
+import React, {useEffect} from "react";
 import {useDispatch, useSelector} from "react-redux";
 import {FoodTypeData, RestaurantTypeData} from "@/src/model/product";
+import {addToCart} from "@/src/redux/slice/cartSlice";
 
 const Cart = ({restaurantData}: { restaurantData: RestaurantTypeData }) => {
     const cart = useSelector((state: { product: FoodTypeData[] }) => state.product)
@@ -12,6 +13,20 @@ const Cart = ({restaurantData}: { restaurantData: RestaurantTypeData }) => {
     const totalPrice = cart.reduce((total, food) => food.count * food.price + total, 0)
     const totalCount = cart.reduce((total, food) => food.count + total, 0)
     const isCartEmpty = cart.length === 0
+
+    const handlePurchase = () => {
+        const cartDetail = {
+            restaurantData: {
+                name: restaurantData.name,
+                image: restaurantData.image,
+                address: restaurantData.address,
+            },
+            purchaseData: cart,
+            totalPrice: totalPrice
+        }
+        dispatch(addToCart(cartDetail))
+        dispatch(clearProduct())
+    }
 
     if (isCartEmpty) {
         return null
@@ -75,7 +90,7 @@ const Cart = ({restaurantData}: { restaurantData: RestaurantTypeData }) => {
                 </div>
             </div>
             <div className="w-full mt-10">
-                <button className="cart-checkout-btn">ثبت سفارش</button>
+                <button className="cart-checkout-btn" onClick={handlePurchase}>ثبت سفارش</button>
             </div>
         </div>
     )
