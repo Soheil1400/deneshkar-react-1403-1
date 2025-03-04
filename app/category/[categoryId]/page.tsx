@@ -2,9 +2,12 @@ import {DATABASE} from "@/src/data/data";
 import RestaurantCard from "@/src/component/RestaurantCard";
 import Breadcrumb from "@/src/component/Breadcrumb";
 
-const Page = ({params: {categoryId}}: { params: { categoryId: string } }) => {
-    const category = DATABASE.cats.find(cat => cat.id === +categoryId)?.title as string;
-    const restaurants = DATABASE.restaurants.filter(res => res.catId.includes(+categoryId))
+type Params = Promise<{ categoryId: string }>
+
+const Page = async (props: { params: Params }) => {
+    const params = await props.params;
+    const category = DATABASE.cats.find(cat => cat.id === +params.categoryId)?.title as string;
+    const restaurants = DATABASE.restaurants.filter(res => res.catId.includes(+params.categoryId))
     const hasEmptyRestaurants = restaurants.length === 0
 
     return (

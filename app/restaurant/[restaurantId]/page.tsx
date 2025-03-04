@@ -7,7 +7,10 @@ import Cart from "@/src/component/restaurant/Cart";
 import {RestaurantTypeData} from "@/src/model/product";
 import Breadcrumb from "@/src/component/Breadcrumb";
 
-const Page = ({params}: {params: {restaurantId: string}}) => {
+type Params = Promise<{ restaurantId: string }>
+
+const Page = async (props: { params: Params }) => {
+    const params = await props.params;
     const [restaurantData] = DATABASE.restaurants.filter(res => res.id === +params.restaurantId) as RestaurantTypeData[]
     return (
         <div className="page-container">
