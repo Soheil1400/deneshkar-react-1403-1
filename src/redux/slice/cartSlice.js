@@ -20,7 +20,7 @@ export const cartSlice = createSlice({
                 state.splice(index, 1)
             }
         },
-        clearProduct: (state, action) => {
+        clearProduct: (state) => {
             state.splice(0, state.length)
         }
     }

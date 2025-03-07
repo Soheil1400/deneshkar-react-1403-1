@@ -13,7 +13,7 @@ interface Props {
 
 const Menu = ({restaurantId}: Props) => {
     const foods = DATABASE.foods.filter(food => food.id !== +restaurantId) as FoodTypeData[]
-    const cart = useSelector((state): { cart: FoodTypeData[] } => state.cart) as FoodTypeData[]
+    const cart = useSelector((state: { cart: FoodTypeData[] }) => state.cart)
     const dispatch = useDispatch();
     return (
         <div className={'flex flex-wrap w-full md:w-2/4 p-4'}>

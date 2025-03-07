@@ -7,9 +7,7 @@ import Image from "next/image";
 
 
 const Page = () => {
-    const historyCart = useSelector((state): {
-        historyCard: HistoryCardTypeData[]
-    } => state.historyCard) as HistoryCardTypeData[];
+    const historyCart = useSelector((state: {historyCard: HistoryCardTypeData[]}) => state.historyCard);
 
     const isHistoryCartEmpty = historyCart.length === 0
 

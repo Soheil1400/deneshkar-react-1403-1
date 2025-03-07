@@ -1,7 +1,10 @@
 import {MdKeyboardArrowLeft} from "react-icons/md";
 
+interface Props {
+    title: string
+}
 
-const Breadcrumb = ({title}) => {
+const Breadcrumb = ({title}: Props) => {
     return(
         <div className={'flex w-full mb-4 items-center'}>
             <p className={'text-xs text-gray-400'}>

@@ -12,7 +12,7 @@ interface Props {
     restaurantData: RestaurantTypeData
 }
 
-const PriceRow = ({title, price}) => {
+const PriceRow = ({title, price}: {title: string, price: number}) => {
     return (
         <div className={'w-full flex justify-between my-1'}>
             <p>
@@ -31,7 +31,7 @@ const PriceRow = ({title, price}) => {
 }
 
 const Cart = ({restaurantData}: Props) => {
-    const cart = useSelector((state): { cart: FoodTypeData[] } => state.cart) as FoodTypeData[];
+    const cart = useSelector((state: { cart: FoodTypeData[] }) => state.cart);
     const totalCount = cart.reduce((total, food) => total + food.count, 0);
     const totalPrice = cart.reduce((total, food) => total + (food.count * food.price), 0);
     const totalPurchase = totalPrice + restaurantData.delivery.price

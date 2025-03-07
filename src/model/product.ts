@@ -15,10 +15,10 @@ export interface RestaurantTypeData {
     image: string,
     delivery: DeliveryType,
     address: string,
-    workTime: string,
+    workTime?: string,
     pay: string,
     tax: number,
-    basketminimum: string
+    basketminimum: string,
 }
 
 export interface FoodTypeData {
@@ -32,7 +32,7 @@ export interface FoodTypeData {
     price: number,
     rate: number,
     desc: string,
-    count?: number
+    count: number
 }
 
 export interface HistoryCardTypeData {
