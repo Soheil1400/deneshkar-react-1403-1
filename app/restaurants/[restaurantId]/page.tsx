@@ -3,6 +3,7 @@ import Breadcrumb from "@/src/component/Breadcrumb";
 import Image from "next/image";
 import {convertToPersian} from "@/src/utils/convertToPersian";
 import Menu from "@/src/component/Menu";
+import {RestaurantTypeData} from "@/src/model/product";
 
 interface Props {
     params: Promise<{ restaurantId: string }>
@@ -10,7 +11,7 @@ interface Props {
 
 export default async function Page({params}: Props) {
     const {restaurantId} = await params
-    const [restaurantData] = DATABASE.restaurants.filter(res => res.id === +restaurantId)
+    const [restaurantData] = DATABASE.restaurants.filter(res => res.id === +restaurantId) as RestaurantTypeData[]
     return (
         <div className={'flex w-full justify-center flex-wrap p-1 md:p-4'}>
             <div className={'flex flex-wrap w-full max-w-7xl my-16'}>

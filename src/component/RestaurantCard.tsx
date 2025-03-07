@@ -2,9 +2,13 @@ import Image from "next/image";
 import {MdOutlineStar} from "react-icons/md";
 import {convertToPersian} from "@/src/utils/convertToPersian";
 import Link from "next/link";
+import {RestaurantTypeData} from "@/src/model/product";
 
+interface Props {
+    restaurant: RestaurantTypeData
+}
 
-const RestaurantCard = ({restaurant}) => {
+const RestaurantCard = ({restaurant}: Props) => {
     return (
         <Link href={`/restaurants/${restaurant.id}`}>
             <div className={'flex flex-wrap w-full shadow-shadows-medium hover:shadow-shadows-high'}>

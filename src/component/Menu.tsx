@@ -1,10 +1,14 @@
 import {DATABASE} from "@/src/data/data";
 import Image from "next/image";
 import {convertToPersian} from "@/src/utils/convertToPersian";
+import {FoodTypeData} from "@/src/model/product";
 
-const Menu = ({restaurantId}) => {
-    const foods = DATABASE.foods.filter( food => food.id !== +restaurantId)
-    console.log(foods, 'foods')
+interface Props {
+    restaurantId: string
+}
+
+const Menu = ({restaurantId}: Props) => {
+    const foods = DATABASE.foods.filter( food => food.id !== +restaurantId) as FoodTypeData[]
     return(
         <div className={'flex flex-wrap w-full md:w-2/4 p-4'}>
             <div className={'w-full rounded-t-xl bg-white py-4 border-solid border-surface-dark text-sm text-center'}  style={{

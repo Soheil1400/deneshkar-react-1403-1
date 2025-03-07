@@ -1,6 +1,7 @@
 import {DATABASE} from "@/src/data/data";
 import RestaurantCard from "@/src/component/RestaurantCard";
 import Breadcrumb from "@/src/component/Breadcrumb";
+import {RestaurantTypeData} from "@/src/model/product";
 
 interface Props {
     params: Promise<{ categoryId: string }>
@@ -8,8 +9,8 @@ interface Props {
 
 export default async function Page({params}: Props) {
     const {categoryId} = await params
-    const category = DATABASE.cats.find( cat => cat.id === +categoryId)?.title as string
-    const restaurants = DATABASE.restaurants.filter( res => res.catId.includes(+categoryId))
+    const category = DATABASE.cats.find(cat => cat.id === +categoryId)?.title as string
+    const restaurants = DATABASE.restaurants.filter(res => res.catId.includes(+categoryId)) as RestaurantTypeData[]
     const hasEmptyRestaurants = restaurants.length === 0
 
     return (
@@ -22,7 +23,7 @@ export default async function Page({params}: Props) {
                             {'رستورانی در این دسته بندی وجود ندارد :('}
                         </p>
                         :
-                        restaurants.map( restaurant => (
+                        restaurants.map(restaurant => (
                             <div className={'w-full md:w-1/4 p-2'}>
                                 <RestaurantCard restaurant={restaurant}/>
                             </div>
