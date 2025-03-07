@@ -32,4 +32,5 @@ export interface FoodTypeData {
     price: number,
     rate: number,
     desc: string,
+    count?: number
 }
