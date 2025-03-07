@@ -4,6 +4,7 @@ import Image from "next/image";
 import {convertToPersian} from "@/src/utils/convertToPersian";
 import Menu from "@/src/component/Menu";
 import {RestaurantTypeData} from "@/src/model/product";
+import Cart from "@/src/component/Cart";
 
 interface Props {
     params: Promise<{ restaurantId: string }>
@@ -30,7 +31,7 @@ export default async function Page({params}: Props) {
                     </div>
                 </div>
                 <Menu restaurantId={restaurantId}/>
-                <div className={'w-full md:w-1/4 p-4 flex flex-wrap'}>
+                <div className={'w-full md:w-1/4 p-4 flex-wrap'}>
                     <div className={'flex w-full rounded-xl px-4 py-4 bg-white text-sm shadow-shadows-small items-center justify-center h-16'}>
                         <Image src={restaurantData.delivery.icon} alt={''} width={16} height={16} style={{
                             marginLeft: '4px'
@@ -38,6 +39,7 @@ export default async function Page({params}: Props) {
                         {` ${restaurantData.delivery.type}`}
                         {` ${convertToPersian(restaurantData.delivery.price)}`}
                     </div>
+                    <Cart restaurantData={restaurantData}/>
                 </div>
             </div>
         </div>

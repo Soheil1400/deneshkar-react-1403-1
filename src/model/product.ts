@@ -34,3 +34,13 @@ export interface FoodTypeData {
     desc: string,
     count?: number
 }
+
+export interface HistoryCardTypeData {
+    purchaseData: FoodTypeData[],
+    totalPurchase: number,
+    restaurantData: {
+        name: string,
+        image: string,
+        address: string
+    }
+}
