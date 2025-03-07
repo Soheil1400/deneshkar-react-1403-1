@@ -6,6 +6,7 @@ import {MdDelete} from "react-icons/md";
 import {clearProduct} from "@/src/redux/slice/cartSlice";
 import AddFood from "@/src/component/AddFood";
 import React from 'react'
+import {addToHistoryCart} from "@/src/redux/slice/historyCart";
 
 interface Props {
     restaurantData: RestaurantTypeData
@@ -36,6 +37,20 @@ const Cart = ({restaurantData}: Props) => {
     const totalPurchase = totalPrice + restaurantData.delivery.price
     const isCartEmpty = totalCount === 0
     const dispatch = useDispatch()
+
+    const handlePurchase = () => {
+        const cartDetail = {
+            purchaseData: cart,
+            totalPurchase,
+            restaurantData: {
+                name: restaurantData.name,
+                image: restaurantData.logo,
+                address: restaurantData.address
+            }
+        }
+        dispatch(addToHistoryCart(cartDetail))
+        dispatch(clearProduct())
+    }
 
     if (isCartEmpty) {
         return null
@@ -81,7 +96,7 @@ const Cart = ({restaurantData}: Props) => {
                 <PriceRow title={'قابل پرداخت'} price={totalPurchase}/>
             </div>
             <div className={'w-full mt-10'}>
-                <button className={'w-full bg-primary-main text-center py-2 rounded-lg text-white text-lg font-bold'}>
+                <button onClick={handlePurchase} className={'w-full bg-primary-main text-center py-2 rounded-lg text-white text-lg font-bold'}>
                     {'ثبت سفارش'}
                 </button>
             </div>
